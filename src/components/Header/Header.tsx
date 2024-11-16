@@ -1,11 +1,17 @@
-import Navbar from './Navbar';
+interface HeaderProps {
+  generatePalette: () => void;
+}
 
-export default function Header() {
-    return (
-        <header>
-            <img src="../../assets/favicon.svg" alt="Website logo" />
-            <h1>Website Title</h1>
-            <Navbar />
-        </header>
-    );
-};
+export default function Header({ generatePalette }: HeaderProps) {
+  return (
+    <nav className="h-12 bg-gray-100 flex items-center px-4">
+      <h1 className="flex-1 text-lg font-bold">Colarity</h1>
+      <button
+        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        onClick={generatePalette}
+      >
+        Generate
+      </button>
+    </nav>
+  );
+}

@@ -1,18 +1,27 @@
-// src/components/Navbar.tsx
-interface NavbarProps {
-  generatePalette: () => void;
-}
+import { Link } from "react-router-dom";
 
-export default function Navbar({ generatePalette }: NavbarProps) {
+const navItemClasses = "hover:text-gray-400";
+
+export default function Navbar() {
   return (
-    <nav className="h-12 bg-gray-100 flex items-center px-4">
-      <h1 className="flex-1 text-lg font-bold">Colarity</h1>
-      <button
-        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-        onClick={generatePalette}
-      >
-        Generate
-      </button>
+    <nav>
+      <ul className="flex space-x-4 list-none">
+        <li>
+          <Link to="/" className={navItemClasses}>
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link to="/about" className={navItemClasses}>
+            About
+          </Link>
+        </li>
+        <li>
+          <Link to="/contact" className={navItemClasses}>
+            Contact
+          </Link>
+        </li>
+      </ul>
     </nav>
   );
 }
